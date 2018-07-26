@@ -1,0 +1,28 @@
+{
+  "name": "scoringmodulearvi",
+  "version": "0.0.1",
+  "description": "API de scoring de l'application ARVI",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlorianParmentier/ScoringModuleARVI.git"
+  },
+  "author": "Florian Parmentier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlorianParmentier/ScoringModuleARVI/issues"
+  },
+  "homepage": "https://github.com/FlorianParmentier/ScoringModuleARVI#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  },
+  "dependencies": {
+    "restify": "^7.2.1"
+  }
+}
