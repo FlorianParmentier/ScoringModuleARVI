@@ -23,6 +23,7 @@
     "eslint-plugin-import": "^2.13.0"
   },
   "dependencies": {
+    "chokidar": "^2.0.4",
     "restify": "^7.2.1"
   }
 }

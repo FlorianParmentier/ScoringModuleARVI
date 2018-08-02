@@ -1,0 +1,10 @@
+{
+    "mailAddress": {},
+    "name":{},
+    "photo": {},
+    "phoneNumber":{},
+    "lastJob":{},
+    "soughtJob":{
+        "title":[]
+    }
+}

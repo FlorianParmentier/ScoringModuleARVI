@@ -1,0 +1,37 @@
+{
+    "users": [
+        {
+            "login": "Daveo",
+            "password": "d4veo20I8",
+            "role": "administrator"
+        }
+    ],
+    "roles": [
+        {
+            "role": "administrator",
+            "rights": [
+                {
+                    "right": "changeScoringData",
+                    "allowed": true
+                },
+                {
+                    "right": "readScoringData",
+                    "allowed": true
+                }
+            ]
+        },
+        {
+            "role": "user",
+            "rights": [
+                {
+                    "right": "changeScoringData",
+                    "allowed": false
+                },
+                {
+                    "right": "readScoringData",
+                    "allowed": true
+                }
+            ]
+        }
+    ]
+}

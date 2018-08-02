@@ -1,0 +1,143 @@
+{
+    "mailAddress": {
+        "points": 0.5
+    },
+    "name": {
+        "points": 0
+    },
+    "photo": {
+        "points": 0
+    },
+    "phoneNumber": {
+        "points": 1
+    },
+    "lastJob": {
+        "title": [
+            {
+                "Scarcity": "important",
+                "points": 3
+            },
+            {
+                "Scarcity": "moderate",
+                "points": 2
+            },
+            {
+                "Scarcity": "low",
+                "points": 1
+            },
+            {
+                "Scarcity": "important",
+                "points": -2
+            }
+        ],
+        "company": [
+            {
+                "company": "competing",
+                "points": 3
+            },
+            {
+                "company": "softwareEdition",
+                "points": 3
+            },
+            {
+                "company": "sbf120",
+                "points": 3
+            }
+        ],
+        "sector": {
+            "points": 0
+        },
+        "experience": [
+            {
+                "minYears": 0,
+                "maxYears": 10,
+                "points": 3
+            },
+            {
+                "minYears": 10,
+                "maxYears": 15,
+                "points": 2
+            },
+            {
+                "minYears": 15,
+                "maxYears": 50,
+                "points": 1
+            }
+        ]
+    },
+    "soughtJob": {
+        "title": [
+            {
+                "comparedToLastJob": "identical",
+                "points": 3
+            },
+            {
+                "comparedToLastJob": "similar",
+                "points": 3
+            }
+        ],
+        "targetPayment": [
+            {
+                "minValue": 0,
+                "maxValue": 40000,
+                "expérience": [
+                    {
+                        "minYears": 0,
+                        "maxYears": 50,
+                        "points": 3
+                    }
+                ]
+            },
+            {
+                "minValue": 40000,
+                "maxValue": 50000,
+                "expérience": [
+                    {
+                        "minYears": 2,
+                        "maxYears": 5,
+                        "points": 3
+                    }
+                ]
+            },
+            {
+                "minValue": 50000,
+                "maxValue": 60000,
+                "expérience": [
+                    {
+                        "minYears": 5,
+                        "maxYears": 10,
+                        "points": 3
+                    }
+                ]
+            },
+            {
+                "minValue": 60000,
+                "maxValue": 100000,
+                "expérience": [
+                    {
+                        "minYears": 10,
+                        "maxYears": 50,
+                        "points": 3
+                    }
+                ]
+            }
+        ],
+        "availability": [
+            {
+                "minTime": 0,
+                "maxTime": 2,
+                "points": 1
+            },
+            {
+                "minTime": 2,
+                "maxTime": 4,
+                "points": 0.5
+            },
+            {
+                "minTime": 4,
+                "maxTime": 12,
+                "points": 0.5
+            }
+        ]
+    }
+}
