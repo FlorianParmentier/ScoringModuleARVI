@@ -30,7 +30,7 @@ module.exports = (neededRight, req, res, next, callback) => {
                 res.header('Content-type', 'application/json');
                 res.send(500, {
                     'result': null,
-                    'error': 'We experienced internal error, we apologize for the inconveniant. Please retry later.'
+                    'error': 'Service experienced internal error, we apologize for the inconveniant. Please retry later.'
                 });
                 next();
                 return;
@@ -61,7 +61,7 @@ module.exports = (neededRight, req, res, next, callback) => {
                     res.header('Content-type', 'application/json');
                     res.send(500, {
                         'result': null,
-                        'error': 'We experienced internal error, we apologize for the inconveniant. Please retry later.'
+                        'error': 'Service experienced internal error, we apologize for the inconveniant. Please retry later.'
                     });
                     next();
                     return;
@@ -73,7 +73,7 @@ module.exports = (neededRight, req, res, next, callback) => {
                     res.header('Content-type', 'application/json');
                     res.send(403, {
                         'result': null,
-                        'error': 'Your are not allowed to continue this action, please contact your administrator to get more rights.'
+                        'error': 'User is not allowed to continue this action, please contact administrator to get more rights.'
                     });
                     next();
                     return;

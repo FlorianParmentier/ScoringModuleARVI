@@ -1,7 +1,81 @@
 const verifyAuthorization = require('./tools/verifyAuthorization');
 
+
+    /**
+     * @apiDefine Credentials
+     * @apiHeader {String} Authorization User credentials (base64 encoded)
+     * 
+     * @apiHeaderExample {String} Authorization: 
+     *      "Basic *login:password*" (Credentials between stars (*) must be base64 encoded) 
+     */
+
+    /**
+     * @apiDefine UserNotFoundError
+     * 
+     * @apiError UserNotFound The credentials of the user was not found.
+     * 
+     * @apiErrorExample Error-Response:
+     *      HTTP/1.1 401 Unauthorized
+     *      {
+     *          "result": null,
+     *          "error": "User not found, please verify your credentials."
+     *      }
+     */
+
+    /**
+     * @apiDefine UserNotAuthorized
+     * 
+     * @apiError UserNotAuthorized The user has no right to execute this action
+     * 
+     * @apiErrorExample Error-Response:
+     *     HTTP/1.1 403 Forbidden
+     *     {
+     *         "result": null,
+     *         "error": "User is not allowed to continue this action, please contact administrator to get more rights."
+     *     }
+     */
+
+    /**
+     * @apiDefine InternalError
+     * 
+     * @apiError InternalError Service experienced internal error
+     * 
+     * @apiErrorExample Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "result": null,
+     *         "error": "Service experienced internal error, we apologize for the inconveniant. Please retry later."
+     *     }
+     */
+
+
+
+
 module.exports = (server, jsonScoring) => {
-    //Get existing scoring data
+    /**
+     * @api {get} /scoringData Request scoring data.
+     * @apiName GetScoringData
+     * @apiGroup ScoringData
+     * 
+     * @apiPermission User
+     * 
+     * @apiUse Credentials
+     * 
+     * @apiSuccess {Object} result Json object representing scoring data.
+     * @apiSuccess {String} error Represent potential error (Should be null on success).
+     * 
+     * @apiSuccessExample Success-Response:
+     *      HTTP/1.1 200 OK
+     *      {
+     *          "result": {...scoringData...},
+     *          "error": null
+     *      }
+     * 
+     * @apiUse UserNotFoundError
+     * @apiUse UserNotAuthorized
+     * @apiUse InternalError
+     * 
+     */
     server.get('/scoringData', (req, res, next) => {
         verifyAuthorization("readScoringData", req, res, next, () => {
             res.header('Content-type', 'application/json');
@@ -13,7 +87,34 @@ module.exports = (server, jsonScoring) => {
         })
     });
 
-    //Add or update scoring data(entire file)
+    /**
+     * @api {post} /scoringData Update scoring data.
+     * @apiName PostScoringData
+     * @apiGroup ScoringData
+     * 
+     * @apiPermission Admin
+     * 
+     * @apiUse Credentials
+     * 
+     * @apiParam {String} body New Json object (It must be stringify) representing scoring data. 
+     * Be carefull with these data, by changing them, you can make the service unable to work !
+     * 
+     * 
+     * @apiSuccess {String} result String that confirm that data is updated
+     * @apiSuccess {String} error Represent potential error (Should be null on success).
+     * 
+     * @apiSuccessExample Success-Response:
+     *      HTTP/1.1 200 OK
+     *      {
+     *          "result": "Scoring data has been updated",
+     *          "error": null
+     *      }
+     * 
+     * @apiUse UserNotFoundError
+     * @apiUse UserNotAuthorized
+     * @apiUse InternalError
+     * 
+     */
     server.post('/scoringData', (req, res, next) => {
         verifyAuthorization("changeScoringData", req, res, next, () => {
             let payload = null;
@@ -38,24 +139,18 @@ module.exports = (server, jsonScoring) => {
                     res.header('Content-type', 'application/json');
                     res.send(500, {
                         'result': null,
-                        'error': 'We experienced internal error, we apologize for the inconveniant. Please retry later.'
+                        'error': 'Service experienced internal error, we apologize for the inconveniant. Please retry later.'
                     });
                     next();
                     return;
                 }
                 res.header('Content-type', 'application/json');
                 res.send(200, {
-                    'result': "Scoring data has been updated",
+                    'result': 'Scoring data has been updated',
                     'error': null
                 });
                 next();
             })
-
-            /*checkPayload(newScoringData, ["mailAddress", "name", "photo", "phoneNumber", "lastJob", "soughtJob", "title"], true, res, next, (isWellFormated) => {
-                if (isWellFormated) {
-                    
-                }
-            })*/
         })
     });
 

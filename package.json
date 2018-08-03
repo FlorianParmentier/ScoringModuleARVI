@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "API de scoring de l'application ARVI",
   "main": "server.js",
+  "apidoc":{
+    "title": "Scoring modure documentation"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js"
