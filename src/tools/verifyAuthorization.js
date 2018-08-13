@@ -14,11 +14,10 @@ params:
 module.exports = (neededRight, req, res, next, callback) => {
     const AuthorizationHeader = req.header('Authorization');
     if (!AuthorizationHeader) {
-        res.header('Content-type', 'application/json');
-        res.send(400, {
+        res.json(200, JSON.stringify({
             'result': null,
             'error': 'Please fill Authorization header with credentials as indicate in documentation.'
-        });
+        }));
         next();
         return;
     }
@@ -27,11 +26,10 @@ module.exports = (neededRight, req, res, next, callback) => {
         accessJsonFile.read('authorizedUsers.json', (authorizedUsers, err) => {
             if (err) {
                 console.log(err);
-                res.header('Content-type', 'application/json');
-                res.send(500, {
+                res.json(200, JSON.stringify({
                     'result': null,
                     'error': 'Service experienced internal error, we apologize for the inconveniant. Please retry later.'
-                });
+                }));
                 next();
                 return;
             }
@@ -39,11 +37,10 @@ module.exports = (neededRight, req, res, next, callback) => {
                 return (user.login === login && user.password === password);
             });
             if (loggedUser.length === 0) {
-                res.header('Content-type', 'application/json');
-                res.send(401, {
+                res.json(200, JSON.stringify({
                     'result': null,
                     'error': 'User not found, please verify your credentials.'
-                });
+                }));
                 next();
                 return;
             }
@@ -58,11 +55,10 @@ module.exports = (neededRight, req, res, next, callback) => {
                     return (role.role === loggedUser[0].role);
                 })
                 if (userRole.length === 0) {
-                    res.header('Content-type', 'application/json');
-                    res.send(500, {
+                    res.json(200, JSON.stringify({
                         'result': null,
                         'error': 'Service experienced internal error, we apologize for the inconveniant. Please retry later.'
-                    });
+                    }));
                     next();
                     return;
                 }
@@ -70,11 +66,10 @@ module.exports = (neededRight, req, res, next, callback) => {
                     return (right.right === neededRight && right.allowed);
                 })
                 if (userRight.length === 0) {
-                    res.header('Content-type', 'application/json');
-                    res.send(403, {
+                    res.json(200, JSON.stringify({
                         'result': null,
                         'error': 'User is not allowed to continue this action, please contact administrator to get more rights.'
-                    });
+                    }));
                     next();
                     return;
                 }

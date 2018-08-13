@@ -2,8 +2,8 @@
   "name": "scoringmodulearvi",
   "version": "0.0.1",
   "description": "API de scoring de l'application ARVI",
-  "main": "server.js",
-  "apidoc":{
+  "main": "src/server.js",
+  "apidoc": {
     "title": "Scoring modure documentation"
   },
   "scripts": {
@@ -27,6 +27,12 @@
   },
   "dependencies": {
     "chokidar": "^2.0.4",
+    "mathjs": "^5.0.4",
     "restify": "^7.2.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "scoringData/*"
+    ]
   }
 }

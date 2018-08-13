@@ -2,7 +2,10 @@
     "mailAddress": {
         "points": 0.5
     },
-    "name": {
+    "firstName": {
+        "points": 0
+    },
+    "lastName": {
         "points": 0
     },
     "photo": {
@@ -11,133 +14,230 @@
     "phoneNumber": {
         "points": 1
     },
+    "experience": [
+        {
+            "minValue": 0,
+            "maxValue": 10,
+            "points": 3
+        },
+        {
+            "minValue": 10,
+            "maxValue": 15,
+            "points": 2
+        },
+        {
+            "minValue": 15,
+            "maxValue": 50,
+            "points": 1
+        }
+    ],
     "lastJob": {
         "title": [
             {
-                "Scarcity": "important",
+                "titles": [
+                    "Coach Agile",
+                    "Développeur Front-end"
+                ],
                 "points": 3
             },
             {
-                "Scarcity": "moderate",
+                "titles": [
+                    "Product Owner",
+                    "Développeur iOS"
+                ],
                 "points": 2
             },
             {
-                "Scarcity": "low",
+                "titles": [
+                    "Développeur Full-stack",
+                    "Recruteur"
+                ],
                 "points": 1
             },
             {
-                "Scarcity": "important",
+                "titles": [
+                    "Développeur Cobol"
+                ],
                 "points": -2
             }
         ],
         "company": [
             {
-                "company": "competing",
+                "companies": [
+                    "Sopra-steria",
+                    "Capgemini",
+                    "Alten"
+                ],
                 "points": 3
             },
             {
-                "company": "softwareEdition",
+                "companies": [
+                    "Ubisoft",
+                    "Microsoft",
+                    "Google"
+                ],
                 "points": 3
             },
             {
-                "company": "sbf120",
+                "companies": [
+                    "LVMH",
+                    "Vinci",
+                    "Pernod Ricard",
+                    "Legrand"
+                ],
                 "points": 3
             }
         ],
         "sector": {
             "points": 0
-        },
-        "experience": [
-            {
-                "minYears": 0,
-                "maxYears": 10,
-                "points": 3
-            },
-            {
-                "minYears": 10,
-                "maxYears": 15,
-                "points": 2
-            },
-            {
-                "minYears": 15,
-                "maxYears": 50,
-                "points": 1
-            }
-        ]
+        }
     },
-    "soughtJob": {
-        "title": [
-            {
-                "comparedToLastJob": "identical",
-                "points": 3
-            },
-            {
-                "comparedToLastJob": "similar",
-                "points": 3
-            }
-        ],
-        "targetPayment": [
-            {
-                "minValue": 0,
-                "maxValue": 40000,
-                "expérience": [
-                    {
-                        "minYears": 0,
-                        "maxYears": 50,
-                        "points": 3
-                    }
-                ]
-            },
-            {
-                "minValue": 40000,
-                "maxValue": 50000,
-                "expérience": [
-                    {
-                        "minYears": 2,
-                        "maxYears": 5,
-                        "points": 3
-                    }
-                ]
-            },
-            {
-                "minValue": 50000,
-                "maxValue": 60000,
-                "expérience": [
-                    {
-                        "minYears": 5,
-                        "maxYears": 10,
-                        "points": 3
-                    }
-                ]
-            },
-            {
-                "minValue": 60000,
-                "maxValue": 100000,
-                "expérience": [
-                    {
-                        "minYears": 10,
-                        "maxYears": 50,
-                        "points": 3
-                    }
-                ]
-            }
-        ],
-        "availability": [
-            {
-                "minTime": 0,
-                "maxTime": 2,
-                "points": 1
-            },
-            {
-                "minTime": 2,
-                "maxTime": 4,
-                "points": 0.5
-            },
-            {
-                "minTime": 4,
-                "maxTime": 12,
-                "points": 0.5
-            }
-        ]
-    }
+    "soughtJob": [
+        {
+            "title": "Product Owner",
+            "targetPayment": [
+                {
+                    "maxValue": 45000,
+                    "expérience": [
+                        {
+                            "minValue": 0,
+                            "maxValue": 2,
+                            "points": 3
+                        }
+                    ]
+                },
+                {
+                    "maxValue": 55000,
+                    "experience": [
+                        {
+                            "minValue": 2,
+                            "maxValue": 5,
+                            "points": 3
+                        }
+                    ]
+                },
+                {
+                    "maxValue": 70000,
+                    "experience": [
+                        {
+                            "minValue": 5,
+                            "maxValue": 10,
+                            "points": 3
+                        }
+                    ]
+                },
+                {
+                    "maxValue": 100000,
+                    "experience": [
+                        {
+                            "minValue": 10,
+                            "maxValue": 50,
+                            "points": 3
+                        }
+                    ]
+                }
+            ],
+            "availability": [
+                {
+                    "minValue": 0,
+                    "maxValue": 2,
+                    "points": 1
+                },
+                {
+                    "minValue": 3,
+                    "maxValue": 4,
+                    "points": 1
+                },
+                {
+                    "minValue": 5,
+                    "maxValue": 12,
+                    "points": 0.5
+                }
+            ],
+            "city": [
+                {
+                    "cities": ["Paris"],
+                    "points": 3
+                },
+                {
+                    "cities": ["Lille", "Nantes"],
+                    "points": 2
+                }
+            ],
+            "maxPoints": 7
+        },
+        {
+            "title": "",
+            "targetPayment": [
+                {
+                    "maxValue": 40000,
+                    "experience": [
+                        {
+                            "minValue": 0,
+                            "maxValue": 2,
+                            "points": 3
+                        }
+                    ]
+                },
+                {
+                    "maxValue": 50000,
+                    "experience": [
+                        {
+                            "minValue": 2,
+                            "maxValue": 5,
+                            "points": 3
+                        }
+                    ]
+                },
+                {
+                    "maxValue": 60000,
+                    "experience": [
+                        {
+                            "minValue": 5,
+                            "maxValue": 10,
+                            "points": 3
+                        }
+                    ]
+                },
+                {
+                    "maxValue": 75000,
+                    "experience": [
+                        {
+                            "minValue": 10,
+                            "maxValue": 50,
+                            "points": 3
+                        }
+                    ]
+                }
+            ],
+            "availability": [
+                {
+                    "minValue": 0,
+                    "maxValue": 2,
+                    "points": 1
+                },
+                {
+                    "minValue": 3,
+                    "maxValue": 4,
+                    "points": 0.5
+                },
+                {
+                    "minValue": 5,
+                    "maxValue": 12,
+                    "points": 0.5
+                }
+            ],
+            "city": [
+                {
+                    "cities": ["Paris"],
+                    "points": 1
+                },
+                {
+                    "cities": ["Lille", "Nantes"],
+                    "points": 3
+                }
+            ],
+            "maxPoints": 7
+        }
+    ]
 }

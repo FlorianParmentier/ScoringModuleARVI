@@ -11,7 +11,7 @@
             "role": "administrator",
             "rights": [
                 {
-                    "right": "changeScoringData",
+                    "right": "writeScoringData",
                     "allowed": true
                 },
                 {
@@ -24,7 +24,7 @@
             "role": "user",
             "rights": [
                 {
-                    "right": "changeScoringData",
+                    "right": "writeScoringData",
                     "allowed": false
                 },
                 {

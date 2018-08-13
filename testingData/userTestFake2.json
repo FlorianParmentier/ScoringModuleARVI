@@ -1,0 +1,13 @@
+{
+    "firstName": "Bruce",
+    "lastName": "Johnson",
+    "eyeColor": "red",
+    "family": {
+        "mother": {
+            "jobTitle": "secretary"
+        },
+        "father": {
+            "jobTitle": "plumber"
+        }
+    }
+}

@@ -37,6 +37,10 @@ accessJsonFile.read("scoringData/scoring.json", (jsonData) => {
 Import routes for scoring data
 */
 require('./scoringDataRoutes.js')(server, { getJsonScoring, setJsonScoring });
+/*
+Import routes for scoring profile
+*/
+require('./scoringRoutes.js')(server, { getJsonScoring, setJsonScoring });
 
 
 //Launch server 

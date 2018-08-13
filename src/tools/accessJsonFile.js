@@ -31,7 +31,7 @@ exports.write = (filePath, data, callback) => {
         console.error('This file is not json file.');
         return;
     }
-    fs.writeFile(filePath, data, (err) => {
+    fs.writeFile(filePath, JSON.stringify(data), (err) => {
         if (err) {
             console.log('There was an error writing the file: ', err);
             return callback(false, err);

@@ -1,0 +1,48 @@
+{
+    "firstName": {
+        "points": 1
+    },
+    "lastName": {
+        "points": 1
+    },
+    "eyeColor": [
+        {
+            "colors": ["yellow", "red"],
+            "points": 5
+        },
+        {
+            "colors": ["blue", "green"],
+            "points": 1
+        },
+        {
+            "colors": ["pink", "purple"],
+            "points": -3
+        }
+    ],
+    "family": {
+        "mother": {
+            "jobTitle": [
+                {
+                    "titles": ["secretary", "nurse"],
+                    "points": 3
+                },
+                {
+                    "titles": ["CEO", "CTO"],
+                    "points": 4
+                }
+            ]
+        },
+        "father": {
+            "jobTitle": [
+                {
+                    "titles": ["plumber", "firefighter"],
+                    "points": 3
+                },
+                {
+                    "titles": ["CEO", "CTO"],
+                    "points": 4
+                }
+            ]
+        }
+    }
+}

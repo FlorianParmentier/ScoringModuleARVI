@@ -1,0 +1,45 @@
+{
+    "_id": 1,
+    "lastName": "Dupont",
+    "firstName": "Edouard",
+    "birthDate": "26/04/1993",
+    "mailAddress": "edouard.dupont@mail.org",
+    "photo": "",
+    "phoneNumber": "0123456789",
+    "candidateProfile": {
+        "experience": 3,
+        "lastJob": {
+            "company": "Capgemini",
+            "title": "Développeur iOS",
+            "sector": "Informatique",
+            "city": "Paris",
+            "country": "France",
+            "startDate": "12/04/2015",
+            "endDate": "23/10/2018",
+            "isCurrent": true
+        },
+        "soughtJob": {
+            "title": "Product Owner",
+            "targetPayment": 50000,
+            "region": "Paris",
+            "country": "France",
+            "availability": 2
+        },
+        "gamification": {
+            "pointNumber": 50,
+            "gainPoints": {
+                "phoneNumber": true,
+                "conversationStarted": true,
+                "firstMeetingPlan": false
+            }
+        },
+        "recruitmentIndex": {
+            "obtainedScore": 53,
+            "maximunScore": 54
+        }
+    },
+    "linkedinAccessToken": {
+        "token": "token",
+        "expiresIn": 3600
+    }
+}
