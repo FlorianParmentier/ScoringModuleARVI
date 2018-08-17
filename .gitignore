@@ -74,6 +74,3 @@ typings/
 
 # VSCode files
 .vscode/
-
-# apidoc folder (temporary)
-apidoc/

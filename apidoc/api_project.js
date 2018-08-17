@@ -1,0 +1,15 @@
+define({
+  "title": "Scoring modure documentation",
+  "name": "scoringmodulearvi",
+  "version": "0.0.1",
+  "description": "API de scoring de l'application ARVI",
+  "sampleUrl": false,
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2018-08-13T09:52:20.607Z",
+    "url": "http://apidocjs.com",
+    "version": "0.17.6"
+  }
+});
