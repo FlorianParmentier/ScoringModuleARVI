@@ -180,11 +180,19 @@ scoring = (scoringData, profile, keys = [], fillRequirements = true) => {
         return { 'score': localScore, 'maxScore': localMax };
     });
 
-    let result = sumArrayValues(score, maxScoreField);
+    let result = sumScoreValues(score, maxScoreField);
     return result;
 }
 
-sumArrayValues = (array, maxScoreField = false) => {
+/**
+ * In the main scoring function, the map() function return scores in matrix, 
+ * so we used this function to sum this score and transform it to a simple array.
+ * It takes an array in param and a boolean to inform the presence of a "maxPoints" field in scoring data. Default is false 
+ * (Only use this boolean in the main scoring function).
+ * 
+ * The function return a simple array with the score, the max possible score for this profile, and the boolean passed in param (Default is false)
+ */
+sumScoreValues = (array, maxScoreField = false) => {
     let score = 0;
     let maxScore = 0;
     if (math.typeof(array) === 'Array') {

@@ -1,7 +1,8 @@
 const verifyAuthorization = require('./tools/verifyAuthorization');
+const math = require('mathjs');
 
 
-   
+
 
 
 
@@ -71,7 +72,7 @@ module.exports = (server, jsonScoring) => {
      */
     server.post('/scoringData', (req, res, next) => {
         verifyAuthorization("writeScoringData", req, res, next, () => {
-            if(req.header('Content-type') !== 'application/json'){
+            if (req.header('Content-type') !== 'application/json') {
                 res.json(400, JSON.stringify({
                     'result': null,
                     'error': 'Data must be a passed in json. Please refer to the documentation.'
@@ -86,6 +87,15 @@ module.exports = (server, jsonScoring) => {
                 res.json(400, JSON.stringify({
                     'result': null,
                     'error': 'Data are not in good format. Please refer to the documentation.'
+                }));
+                next();
+                return;
+            }
+
+            if (!pointsAreLastKeys(newScoringData)) {
+                res.json(400, JSON.stringify({
+                    'result': null,
+                    'error': 'Data are not in good format. \'points\' keys should be in last position in each subobjects.'
                 }));
                 next();
                 return;
@@ -140,7 +150,7 @@ module.exports = (server, jsonScoring) => {
         verifyAuthorization("readScoringData", req, res, next, () => {
             const positionTitle = (req.query.positionTitle ? req.query.positionTitle : "");
             let positionScoringData = null;
-            if(!jsonScoring.getJsonScoring().soughtJob){
+            if (!jsonScoring.getJsonScoring().soughtJob) {
                 console.log("No positions are reported in 'soughtJob' section in 'scoring.json'");
                 res.json(204, JSON.stringify({
                     'result': 'No position found with the title you gave',
@@ -152,14 +162,14 @@ module.exports = (server, jsonScoring) => {
             positionScoringData = jsonScoring.getJsonScoring().soughtJob.filter((position) => {
                 return (position.title === positionTitle);
             });
-            if(positionScoringData.length === 0){
+            if (positionScoringData.length === 0) {
                 res.json(204, JSON.stringify({
                     'result': 'No position found with the title you gave',
                     'error': null
                 }));
                 next();
             }
-            else if(positionScoringData.length === 1){
+            else if (positionScoringData.length === 1) {
                 res.json(200, JSON.stringify({
                     'result': positionScoringData[0],
                     'error': null
@@ -195,7 +205,7 @@ module.exports = (server, jsonScoring) => {
      */
     server.post('/scoringData/position', (req, res, next) => {
         verifyAuthorization("writeScoringData", req, res, next, () => {
-            if(req.header('Content-type') !== 'application/json'){
+            if (req.header('Content-type') !== 'application/json') {
                 res.json(400, JSON.stringify({
                     'result': null,
                     'error': 'Data must be a passed in json. Please refer to the documentation.'
@@ -211,6 +221,14 @@ module.exports = (server, jsonScoring) => {
                 res.json(400, JSON.stringify({
                     'result': null,
                     'error': 'Data are not in good format. Please refer to the documentation.'
+                }));
+                next();
+                return;
+            }
+            if (!pointsAreLastKeys(newPositionScoringData)) {
+                res.json(400, JSON.stringify({
+                    'result': null,
+                    'error': 'Data are not in good format. \'points\' keys should be in last position in each subobjects.'
                 }));
                 next();
                 return;
@@ -262,7 +280,7 @@ module.exports = (server, jsonScoring) => {
     server.del('/scoringData/position', (req, res, next) => {
         verifyAuthorization('writeScoringData', req, res, next, () => {
             const positionTitle = (req.query.positionTitle ? req.query.positionTitle : "");
-            if(!jsonScoring.getJsonScoring().soughtJob){
+            if (!jsonScoring.getJsonScoring().soughtJob) {
                 console.log("No positions are reported in 'soughtJob' section in 'scoring.json'");
                 res.json(204, JSON.stringify({
                     'result': 'No position found with the title you gave',
@@ -275,7 +293,7 @@ module.exports = (server, jsonScoring) => {
             newSoughtJobArray = scoringData.soughtJob.filter((position) => {
                 return (position.title !== positionTitle);
             });
-            if(scoringData.soughtJob === newSoughtJobArray){
+            if (scoringData.soughtJob === newSoughtJobArray) {
                 res.json(204, JSON.stringify({
                     'result': 'No position found with the title you gave',
                     'error': null
@@ -303,4 +321,46 @@ module.exports = (server, jsonScoring) => {
     })
 }
 
-  
+/**
+ * This function verify in a json object that each "points" key is the last key in object or subobject
+ * It take a json object in param 
+ * It returns a boolean (true is each "points" key is the last key, false otherwise)
+ *  
+ */
+const pointsAreLastKeys = (json) => {
+    const keys = Object.keys(json);
+    let i = 0;
+    while (i < keys.length) {
+        if (keys[i] === "points" && i < keys.length - 1) {
+            return false;
+        }
+        switch (math.typeof(json[keys[i]])) {
+            case 'Object':
+                if(!pointsAreLastKeys(json[keys[i]])){
+                    return false;
+                }
+                break;
+            case 'Array':
+                let sameType = true;
+                json[keys[i]].map((value) => {
+                    if (math.typeof(value) !== 'Object') {
+                        sameType = false;
+                    }
+                });
+                if (!sameType) {
+                    fillRequirements = false;
+                }
+                let j = 0;
+                while (j < json[keys[i]].length) {
+                    if(!pointsAreLastKeys(json[keys[i]][j])){
+                        return false;
+                    }
+                    j++;
+                }
+                break;
+        }
+        i++;
+    }
+    return true;
+}
+

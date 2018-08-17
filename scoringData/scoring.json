@@ -2,10 +2,7 @@
     "mailAddress": {
         "points": 0.5
     },
-    "firstName": {
-        "points": 0
-    },
-    "lastName": {
+    "name": {
         "points": 0
     },
     "photo": {
@@ -108,7 +105,7 @@
                 },
                 {
                     "maxValue": 55000,
-                    "experience": [
+                    "expérience": [
                         {
                             "minValue": 2,
                             "maxValue": 5,
@@ -118,7 +115,7 @@
                 },
                 {
                     "maxValue": 70000,
-                    "experience": [
+                    "expérience": [
                         {
                             "minValue": 5,
                             "maxValue": 10,
@@ -128,7 +125,7 @@
                 },
                 {
                     "maxValue": 100000,
-                    "experience": [
+                    "expérience": [
                         {
                             "minValue": 10,
                             "maxValue": 50,
@@ -144,23 +141,33 @@
                     "points": 1
                 },
                 {
-                    "minValue": 3,
+                    "minValue": 2,
                     "maxValue": 4,
                     "points": 1
                 },
                 {
-                    "minValue": 5,
+                    "minValue": 4,
                     "maxValue": 12,
                     "points": 0.5
                 }
             ],
             "city": [
                 {
-                    "cities": ["Paris"],
+                    "cities": [
+                        "Paris"
+                    ],
                     "points": 3
                 },
                 {
-                    "cities": ["Lille", "Nantes"],
+                    "cities": [
+                        "Lille"
+                    ],
+                    "points": 2
+                },
+                {
+                    "cities": [
+                        "Nantes"
+                    ],
                     "points": 2
                 }
             ],
@@ -171,7 +178,7 @@
             "targetPayment": [
                 {
                     "maxValue": 40000,
-                    "experience": [
+                    "expérience": [
                         {
                             "minValue": 0,
                             "maxValue": 2,
@@ -181,7 +188,7 @@
                 },
                 {
                     "maxValue": 50000,
-                    "experience": [
+                    "expérience": [
                         {
                             "minValue": 2,
                             "maxValue": 5,
@@ -191,7 +198,7 @@
                 },
                 {
                     "maxValue": 60000,
-                    "experience": [
+                    "expérience": [
                         {
                             "minValue": 5,
                             "maxValue": 10,
@@ -201,7 +208,7 @@
                 },
                 {
                     "maxValue": 75000,
-                    "experience": [
+                    "expérience": [
                         {
                             "minValue": 10,
                             "maxValue": 50,
@@ -217,23 +224,33 @@
                     "points": 1
                 },
                 {
-                    "minValue": 3,
+                    "minValue": 2,
                     "maxValue": 4,
                     "points": 0.5
                 },
                 {
-                    "minValue": 5,
+                    "minValue": 4,
                     "maxValue": 12,
                     "points": 0.5
                 }
             ],
             "city": [
                 {
-                    "cities": ["Paris"],
+                    "cities": [
+                        "Paris"
+                    ],
                     "points": 1
                 },
                 {
-                    "cities": ["Lille", "Nantes"],
+                    "cities": [
+                        "Lille"
+                    ],
+                    "points": 3
+                },
+                {
+                    "cities": [
+                        "Nantes"
+                    ],
                     "points": 3
                 }
             ],
